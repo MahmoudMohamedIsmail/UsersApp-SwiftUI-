@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct UsersAppApp: App {
+    @State private var favorites = FavoritesUsers()
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            UserListView(viewModel: UserListViewModel())
+                .environment(favorites)
         }
     }
 }
